@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const copySchema = new mongoose.Schema({
     book : {
-        type : mongoose.Schema.Types.ObjectId,
+        type : mongoose.Schema.Types.ObjectId,  // bookid instaed of the entire book doc
         ref : "Book",
         required : true,
     },

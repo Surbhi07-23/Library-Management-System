@@ -4,12 +4,12 @@ const bookSchema = new mongoose.Schema(
     {
         title : {
             type : String,
-            Required : true
+            required : true
         },
 
         author : {
             type : String,
-            Required : true,
+            required : true,
         },
 
         isbn : {
