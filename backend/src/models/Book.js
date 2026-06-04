@@ -36,4 +36,4 @@ const bookSchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.Model("Book" , bookSchema);
+export default mongoose.model("Book" , bookSchema);
