@@ -17,7 +17,7 @@ const issueSchema = new mongoose.Schema({
         required : true,
     },
 
-    copy : {
+    copy: {
         type : mongoose.Schema.Types.ObjectId,
         ref : "Copy",
         required : true,

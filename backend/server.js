@@ -8,6 +8,7 @@ import bookRoutes from "./src/routes/bookRoutes.js";
 
 import copyRoutes from "./src/routes/copyRoutes.js";
 
+import issueRoutes from ".//src/routes/issueRoutes.js";
 dotenv.config();
 
 connectDB();
@@ -22,6 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/books" , bookRoutes);
 
 app.use("/api/copies" , copyRoutes);
+
+app.use("/api/issues" , issueRoutes);
 
 app.get("/", (req,res) => {
     res.send("api running")
