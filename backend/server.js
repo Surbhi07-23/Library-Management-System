@@ -9,6 +9,8 @@ import bookRoutes from "./src/routes/bookRoutes.js";
 import copyRoutes from "./src/routes/copyRoutes.js";
 
 import issueRoutes from ".//src/routes/issueRoutes.js";
+
+import dashboardRoutes from ".//src/routes/dashboardRoutes.js";
 dotenv.config();
 
 connectDB();
@@ -25,6 +27,8 @@ app.use("/api/books" , bookRoutes);
 app.use("/api/copies" , copyRoutes);
 
 app.use("/api/issues" , issueRoutes);
+
+app.use("/api/dashboard" , dashboardRoutes);
 
 app.get("/", (req,res) => {
     res.send("api running")
