@@ -27,12 +27,20 @@ function Navbar() {
                 Issue Book
             </Link>
 
-            <Link className="nav-link" to="/active">
+            <Link className="nav-link" to="/issues/active">
                 Active Issues
             </Link>
 
             <Link className="nav-link" to="/overdue">
                 Overdue
+            </Link>
+
+            <Link className="nav-link" to="/principal">
+                Principal
+            </Link>
+
+            <Link className="nav-link" to="/student">
+                Student
             </Link>
 
         </div>

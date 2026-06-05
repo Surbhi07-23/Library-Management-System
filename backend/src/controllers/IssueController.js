@@ -16,6 +16,8 @@ const issueBook = async (req,res) => {
 
         const copy = await Copy.findById(copyId);
 
+        console.log("COPY =", copy);
+
         if(!copy){
             res.status(404).json({
                 success : false ,
@@ -42,6 +44,14 @@ const issueBook = async (req,res) => {
         await copy.save();
 
         const book = await Book.findById(bookId);    //changing the count of issued book
+    console.log("BOOK =", book);
+
+        if(!book){
+            return res.status(404).json({
+                success:false,
+                message:"Book not found"
+            });
+        }
         book.availableCopies -= 1;
         await book.save();
 
@@ -84,14 +94,14 @@ const returnBook = async(req , res) => {
         const issue = await Issue.findById(issueId);
 
         if(!issue){
-            res.status(404).json({
+            return res.status(404).json({
                 success : false,
                 message : "Issue record not found!"
             });
         }
 
         if(issue.status == "RETURNED"){
-            res.status(400).json({
+            return res.status(400).json({
                 success : false,
                 message:"Book already returned"
             });
@@ -167,4 +177,26 @@ const getOverdueBooks = async (req,res) => {
     }
 }
 
-export {issueBook , getAllIssues ,returnBook , getActiveIssues , getOverdueBooks};
+const getStudentIssues = async(req,res) => {
+    try{
+        const issues = await Issue.find({
+            studentId : req.params.studentId,
+            status: "ACTIVE"
+        }).populate("book").populate("copy");
+
+        res.status(200).json({
+            success:true,
+            count:issues.length,
+            data:issues
+        })
+
+    }catch(error){
+        res.status(500).json({
+            success:false,
+            message : error.message
+        })
+    }
+}
+
+
+export {issueBook , getAllIssues ,returnBook , getActiveIssues , getOverdueBooks  , getStudentIssues};

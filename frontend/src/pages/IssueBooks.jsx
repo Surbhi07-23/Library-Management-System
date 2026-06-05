@@ -74,7 +74,7 @@ function IssueBook(){
       <div>
         <input
           name="copyId"
-          placeholder="Copy"
+          placeholder="Copy ID"
           value={formData.copyId}
           onChange={handleChange}
         />
