@@ -40,12 +40,13 @@ function IssueBook(){
   }
   }
   return (
-  <div>
-    <h2>Issue Book</h2>
+  <div className="container mt-4">
+    <h2 className="mb-4">Issue Book</h2>
 
     <form  onSubmit={handleSubmit}>
       <div>
         <input
+          className="form-control"
           name="studentName"
           placeholder="Student Name"
           value={formData.studentName}
@@ -55,6 +56,7 @@ function IssueBook(){
 
       <div>
         <input
+          className="form-control"
           name="studentId"
           placeholder="Student Id"
           value={formData.studentId}
@@ -64,6 +66,7 @@ function IssueBook(){
 
       <div>
         <input
+          className="form-control"
           name="bookId"
           placeholder="Book ID"
           value={formData.bookId}
@@ -73,6 +76,7 @@ function IssueBook(){
 
       <div>
         <input
+          className="form-control"
           name="copyId"
           placeholder="Copy ID"
           value={formData.copyId}
@@ -82,6 +86,7 @@ function IssueBook(){
 
       <div>
         <input
+          className="form-control"
           type="date"
           name="issueDate"
           placeholder="Issue Date"
@@ -92,6 +97,7 @@ function IssueBook(){
 
       <div>
         <input
+          className="form-control"
           type="date"
           name="dueDate"
           placeholder="Due Date"
@@ -100,7 +106,7 @@ function IssueBook(){
         />
       </div>
 
-      <button type="Submit">
+      <button type="Submit" className="btn btn-primary">
         Issue book
       </button>
     </form>

@@ -20,42 +20,48 @@ function PrincipalDashboard(){
 
     return(
         <div className="container mt-4">
-            <h1>Principal Dashboard</h1>
-            <div className="col-md-3">
+            <h1 className="mb-4">Principal Dashboard</h1>
+        
                 <div className="card">
                     <div className="card-body">
-                    <h5>Total Books</h5>
-                    <h2>{stats.totalBooks}</h2>
+                        <div className="row">
+                            <h5>Total Books</h5>
+                            <h2>{stats.totalBooks}</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
+            
+                <div className="card">
+                    <div className="card-body">
+                        <div className="row">
+                            <h5>Available Books</h5>
+                            <h2>{stats.availableBooks}</h2>
+                        </div>
+                    </div>
+                </div>
+            
 
-            <div className="col-md-3">
+            
                 <div className="card">
                     <div className="card-body">
-                    <h5>Available Books</h5>
-                    <h2>{stats.availableBooks}</h2>
+                        <div className="row">
+                            <h5>Active Issues</h5>
+                            <h2>{stats.activeIssues}</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
+            
 
-            <div className="col-md-3">
+            
                 <div className="card">
                     <div className="card-body">
-                    <h5>Active Issues</h5>
-                    <h2>{stats.activeIssues}</h2>
+                        <div className="row">
+                        <h5>Overdue Books</h5>
+                        <h2>{stats.overdueBooks}</h2>   
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div className="col-md-3">
-                <div className="card">
-                    <div className="card-body">
-                    <h5>Overdue Books</h5>
-                    <h2>{stats.overdueBooks}</h2>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     )
 };

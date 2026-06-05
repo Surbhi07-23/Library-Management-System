@@ -11,7 +11,7 @@ function Navbar() {
 
         <div className="navbar-nav">
 
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/dashboard">
                 Dashboard
             </Link>
 

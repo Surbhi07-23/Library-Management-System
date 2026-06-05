@@ -19,9 +19,10 @@ function StudentPortal() {
 
     return (
         <div className="container mt-4">
-            <h2>Student Dashboard</h2>
+            <h2 className="mb-4">Student Dashboard</h2>
 
             <input
+                className="form-control"
                 type="text"
                 name="studentId"
                 placeholder="Student id"
@@ -31,38 +32,41 @@ function StudentPortal() {
                 }}
             />
 
-            <button type="button" onClick={searchBooks}>
+            <button type="button" onClick={searchBooks} className="btn btn-primary">
                 search books
             </button>
 
             <hr/>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Book</th>
-                        <th>Copy Code</th>
-                        <th>Due Date</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {issues.length > 0 ? (
-                        issues.map((issue) => (
-                            <tr key={issue._id}>
-                                <td>{issue.book?.title || "N/A"}</td>
-                                <td>{issue.copy?.copyCode || "N/A"}</td>
-                                <td>{new Date(issue.dueDate).toLocaleDateString()}</td>
-                            </tr>
-                        ))
-                    ) : (
+            <div className="table-responsive">
+                    <table className="table table-striped table-bordered">
+                    <thead>
                         <tr>
-                            <td colSpan="3">
-                                No Books Found
-                            </td>
+                            <th>Book</th>
+                            <th>Copy Code</th>
+                            <th>Due Date</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody>
+                        {issues.length > 0 ? (
+                            issues.map((issue) => (
+                                <tr key={issue._id}>
+                                    <td>{issue.book?.title || "N/A"}</td>
+                                    <td>{issue.copy?.copyCode || "N/A"}</td>
+                                    <td>{new Date(issue.dueDate).toLocaleDateString("en-GB")}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="3">
+                                    No Books Found
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
+            
 
         </div>
     )

@@ -62,7 +62,7 @@ function Books() {
             padding: "20px"
             }}
         >
-            <h1>Add a book</h1>
+            <h1 className="mb-4">Add a book</h1>
             <form onSubmit={handleSubmit}
                 style={{
                 display: "flex",
@@ -72,6 +72,7 @@ function Books() {
         }}
             >
                 <input 
+                    className="form-control"
                     name="title"
                     type="text"
                     placeholder="title"
@@ -81,6 +82,7 @@ function Books() {
                 />
 
                 <input
+                    className="form-control"
                     name="author"
                     type="text"
                     placeholder="Author"
@@ -90,6 +92,7 @@ function Books() {
                 />
 
                 <input
+                    className="form-control"
                     name="isbn"
                     type="text"
                     placeholder="isbn"
@@ -97,51 +100,47 @@ function Books() {
                     onChange={handleChange}
                     required
                 />
-                <button type="submit">Add book</button>
+                <button type="submit" className="btn btn-primary">Add book</button>
 
             </form>
 
             <h2>Books List</h2>
-            <table
-                border="1"
-                cellPadding="10"
-                style={{
-                width: "100%",
-                borderCollapse: "collapse"
-        }}
-            >
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>ISBN</th>
-                        <th>Book ID</th>
-                        <th>Total Copies</th>
-                        <th>Available copies</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {books.length > 0 ? (
-                        books.map((book) => (
-                            <tr key={book._id}>
-                                <td>{book.title}</td>
-                                <td>{book.author}</td>
-                                <td>{book.isbn}</td>
-                                <td>{book._id}</td>
-                                <td>{book.totalCopies}</td>
-                                <td>{book.availableCopies}</td>
-                            </tr>
-                        ))
-                    ) : (
+            <div className="table-responsive">
+                    <table className="table table-striped table-bordered">
+                    <thead>
                         <tr>
-                            <td colSpan="5">   {/* creates a single, seamless row that spans the full width of the table.  */}
-                                No books found
-                            </td>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>ISBN</th>
+                            <th>Book ID</th>
+                            <th>Total Copies</th>
+                            <th>Available copies</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody>
+                        {books.length > 0 ? (
+                            books.map((book) => (
+                                <tr key={book._id}>
+                                    <td>{book.title}</td>
+                                    <td>{book.author}</td>
+                                    <td>{book.isbn}</td>
+                                    <td>{book._id}</td>
+                                    <td>{book.totalCopies}</td>
+                                    <td>{book.availableCopies}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="5">   {/* creates a single, seamless row that spans the full width of the table.  */}
+                                    No books found
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     )
     

@@ -8,6 +8,7 @@ import OverdueBooks from "./pages/OverdueBooks.jsx";
 import Copies from "./pages/Copies.jsx";
 import PrincipalDashboard from "./pages/PrincipalDashboard.jsx";
 import StudentPortal from "./pages/StudentPortal.jsx";
+import Home from "./pages/HomePage.jsx";
 
 import Navbar from "./components/navbar.jsx";
 
@@ -16,7 +17,8 @@ function App(){
     <BrowserRouter>
         <Navbar/>
         <Routes>
-          <Route path="/" element={<Dashboard/>}/>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/issues/active" element={<ActiveIssues/>}/>
           <Route path="/books" element={<Books/>}/>
           <Route path="/issues" element={<IssuedBooks/>}/>

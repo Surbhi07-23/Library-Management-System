@@ -18,15 +18,38 @@ function Dashboard(){
 
 
     return (
-        <div>
-            <h1>
+        <div className="container mt-4">
+            <h1 className="mb-4">
                 Library Dashboard
             </h1>
 
-            <h3>Total Books : {stats.totalBooks}</h3>
-            <h3>Available Copies : {stats.availableBooks}</h3>
-            <h3>Active Issues: {stats.activeIssues}</h3>
-            <h3>Overdue Books : {stats.overdueBooks}</h3>
+            <div className="card">
+                <div className="card-body">
+                    <h5>Total Books</h5>
+                    <h2>{stats.totalBooks}</h2>
+                </div>
+            </div>
+
+            <div className="card">
+                <div className="card-body">
+                    <h5>Available Copies</h5>
+                    <h2>{stats.availableBooks}</h2>
+                </div>
+            </div>
+
+            <div className="card">
+                <div className="card-body">
+                    <h5>Active Issues</h5>
+                    <h2>{stats.activeIssues}</h2>
+                </div>
+            </div>
+
+            <div className="card">
+                <div className="card-body">
+                    <h5>Overdue Books</h5>
+                    <h2>{stats.overdueBooks}</h2>
+                </div>
+            </div>
         </div>
     )
 }

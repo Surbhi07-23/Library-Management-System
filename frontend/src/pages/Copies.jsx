@@ -50,10 +50,11 @@ function Copies(){
     }
 
     return(
-        <div>
-            <h1> Copies Management</h1>
+        <div className="container mt-4">
+            <h1 className="mb-4"> Copies Management</h1>
             <form onSubmit={handleSubmit}>
                 <input
+                    className="form-control"
                     type ="text"
                     name="bookId"
                     placeholder="Book ID"
@@ -64,6 +65,7 @@ function Copies(){
                 <br/>
 
                 <input
+                    className="form-control"
                     type ="text"
                     name="copyCode"
                     placeholder="Copy Code"
@@ -73,43 +75,46 @@ function Copies(){
 
                 <br/>
 
-                <button type="submit">
+                <button type="submit" className="btn btn-primary">
                     Add Copy
                 </button>
             </form>
 
             <hr/>
 
-            <h2> Copies List</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <td>Copy ID</td>
-                        <td>Book Title</td>
-                        <td>Copy Code</td>
-                        <td>Status</td>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    {copies.length > 0 ? (
-                        copies.map((copy) => (
-                            <tr key={copy._id}>
-                                <td>{copy._id}</td>
-                                <td>{copy.book?.title || "N/A"}</td>
-                                <td>{copy.copyCode}</td>
-                                <td>{copy.status}</td>
-                            </tr>
-                        ))
-                    ) : (
+            <h2 className="mb-4"> Copies List</h2>
+            <div className="table-responsive">
+                    <table className="table table-striped table-bordered">
+                    <thead>
                         <tr>
-                            <td colSpan="4">
-                                No COpies Found
-                            </td>
+                            <td>Copy ID</td>
+                            <td>Book Title</td>
+                            <td>Copy Code</td>
+                            <td>Status</td>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody>
+                        {copies.length > 0 ? (
+                            copies.map((copy) => (
+                                <tr key={copy._id}>
+                                    <td>{copy._id}</td>
+                                    <td>{copy.book?.title || "N/A"}</td>
+                                    <td>{copy.copyCode}</td>
+                                    <td>{copy.status}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="4">
+                                    No COpies Found
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     )
 }

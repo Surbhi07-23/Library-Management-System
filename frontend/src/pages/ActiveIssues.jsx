@@ -32,47 +32,50 @@ function ActiveIssues() {
   }
 
   return(
-    <div>
-      <h1> Active Issues </h1>
+    <div className="container mt-4">
+      <h1 className="mb-4"> Active Issues </h1>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Student Name</th>
-            <th>Student Id</th>
-            <th>Book</th>
-            <th>Copy Id</th>
-            <th>Due Date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {issues.length > 0 ? (
-            issues.map((issue)=>(
-              <tr key={issue._id}>
-                <td>{issue.studentName}</td>
-                <td>{issue.studentId}</td>
-                <td>{issue.book?.title || "N/A"}</td>
-                <td>{issue.copy?.copyCode || "N/A"}</td>
-                <td>{new Date(issue.dueDate).toLocaleDateString()}</td>
-                <td>{issue.status}</td>
-                <td>
-                  <button onClick={() => returnBook(issue._id)}>
-                    RETURN BOOK
-                  </button>
-                </td>
+        <div className="table-responsive">
+            <table className="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Student Id</th>
+                <th>Book</th>
+                <th>Copy Id</th>
+                <th>Due Date</th>
+                <th>Status</th>
               </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="7">
-                No Active Issues
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+            </thead>
+
+            <tbody>
+              {issues.length > 0 ? (
+                issues.map((issue)=>(
+                  <tr key={issue._id}>
+                    <td>{issue.studentName}</td>
+                    <td>{issue.studentId}</td>
+                    <td>{issue.book?.title || "N/A"}</td>
+                    <td>{issue.copy?.copyCode || "N/A"}</td>
+                    <td>{new Date(issue.dueDate).toLocaleDateString("en-GB")}</td>
+                    <td>{issue.status}</td>
+                    <td>
+                      <button onClick={() => returnBook(issue._id)}>
+                        RETURN BOOK
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="7">
+                    No Active Issues
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+ 
     </div>
   )
 }
