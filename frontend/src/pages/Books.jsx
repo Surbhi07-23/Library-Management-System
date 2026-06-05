@@ -115,6 +115,7 @@ function Books() {
                         <th>Title</th>
                         <th>Author</th>
                         <th>ISBN</th>
+                        <th>Book ID</th>
                         <th>Total Copies</th>
                         <th>Available copies</th>
                     </tr>
@@ -127,6 +128,7 @@ function Books() {
                                 <td>{book.title}</td>
                                 <td>{book.author}</td>
                                 <td>{book.isbn}</td>
+                                <td>{book._id}</td>
                                 <td>{book.totalCopies}</td>
                                 <td>{book.availableCopies}</td>
                             </tr>
